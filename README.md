@@ -3,7 +3,7 @@ Python/Django Graphing/CSV Application
 
 A webapp featuring:
 
--Autocomplete searches
--Filtering
--Automated data visualization
--Export to CSV
+<li>Autocomplete Searches</li>
+<li>Filtering</li>
+<li><Automated Data Visualization/li>
+<li>Export to CSV</li>
