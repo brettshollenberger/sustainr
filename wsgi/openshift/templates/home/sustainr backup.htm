@@ -1,0 +1,809 @@
+{% extends "base.htm" %}
+
+{% block title %}Green Goggles{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+         <h1>Compare Your College.</h1>
+        <p style="line-height:normal;">See how your institution's emissions stack up based on relative metrics, such as gross square footage or full time students.<br /><strong>On the fly.</strong>
+            <div class="row">
+        	<div class="span3">
+              <input type="text" class="span3" id="lookup" data-provide="typeahead" data-items="4" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+{% load staticfiles %}
+<script src="{% static "js/bootstrap-typeahead.js" %}"></script>
+<script>
+ var subjects = "{{ thebigbadcollegelist }}"; 
+$('#lookup').typeahead({source: subjects})
+</script>
+        		<form action="" method="post">
+        		<em>Select Your College:</em><br />
+        				{{form.college1}}
+        	</div>
+        	<div class="span3">
+        	<em>Select A Peer Institution:</em><br />
+				{{form.college2}}
+        	</div>
+            </div>
+            <div class="row" style="position:relative; top:-20px;">
+            <div class="span3">
+            <input class="btn btn-primary" type="submit" value="Let's Go!" style="padding:10px 15px;" />
+            </form>
+            </div>
+            </div>
+            
+
+      </div>
+    
+      	<!-- This section of the page generates if the user has selected data -->
+		{% if collegelist %}
+       
+       	<!-- This section of the page generates if any Scope 1 data has been reported -->
+        {% if scope1 %}
+        <div id="scope1graph" style="width:100%; height:400px;"></div>
+        <!-- Creates the table -->
+        <table class="table table-bordered table-striped">
+        <!-- Generates the chart variables -->
+        <script>
+		collegelist = new Array();
+		scope1array = new Array();
+		scope1counter = 0;
+		</script>
+        {% for college in collegelist %}
+        <script>
+		function removeCommas(str) {
+    		return(str.replace(/,/g,''));
+		}
+		collegelist[scope1counter] = ["{{college.institution}}"+", "+"{{college.publicationdate}}"];
+		scope1array[scope1counter] = [parseInt(removeCommas("{{ college.stationarycombustion }}")), parseInt(removeCommas("{{ college.mobilecombustion }}")), parseInt(removeCommas("{{ college.processemissions }}")), parseInt(removeCommas("{{ college.fugitiveemissions }}")), parseInt(removeCommas("{{ college.scope1 }}")) ];
+		scope1counter++;
+		</script>
+        {% endfor %}
+        <script>
+		scope1series = new Array();
+		for (var i = 0; i < collegelist.length; i++) {
+    		scope1series[i] = {
+				name: collegelist[i],
+                data: scope1array[i]
+			};
+		}
+		</script>
+        <caption>Scope 1 Emissions</caption>
+        <thead>
+        <tr>
+        <td></td>
+        {% for college in collegelist %}
+        <th>{{college.institution}}, {{college.publicationdate}}</th>
+        {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% if stationarycombustion %}
+        <tr>
+        <th>Stationary Combustion</th>
+        {% for college in collegelist %}
+        <td>{{college.stationarycombustion}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if mobilecombustion %}
+        <tr>
+        <th>Mobile Combustion</th>
+        {% for college in collegelist %}
+        <td>{{college.mobilecombustion}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if processemissions %}
+        <tr>
+        <th>Process Emissions</th>
+        {% for college in collegelist %}
+        <td>{{college.processemissions}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if fugitiveemissions %}
+        <tr>
+        <th>Fugitive Emissions</th>
+        {% for college in collegelist %}
+        <td>{{college.fugitiveemissions}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if scope1 %}
+        <tr>
+        <th>Total Scope 1</th>
+        {% for college in collegelist %}
+        <td>{{college.scope1}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        </table>
+        
+         <script type="text/javascript">
+
+(function($){ // encapsulate jQuery
+
+$(function () {
+        $('#scope1graph').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Scope 1 Emissions'
+            },
+            subtitle: {
+                text: 'All Direct Emissions'
+            },
+            xAxis: {
+                categories: [
+				'Stationary Combustion',
+				'Mobile Combustion',
+				'Process Emissions',
+				'Fugitive Emissions',
+				'Total Scope 1'
+			]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Emissions (MTCO<sub>2</sub>e)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} MTCO<sub>2</sub>e</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: scope1series
+        });
+    });
+    
+
+})(jQuery);
+</script>
+{% endif %}
+<script src="http://brettshollenberger.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+    
+        {% if scope2 %}
+         <!-- Generates the chart variables -->
+        <script>
+		scope2array = new Array();
+		scope2counter = 0;
+		</script>
+        {% for college in collegelist %}
+        <script>
+		function removeCommas(str) {
+    		return(str.replace(/,/g,''));
+		}
+		scope2array[scope2counter] = [parseInt(removeCommas("{{ college.purchasedelectricity }}")), parseInt(removeCommas("{{ college.purchasedheating }}")), parseInt(removeCommas("{{ college.purchasedcooling }}")), parseInt(removeCommas("{{ college.purchasedsteam }}")), parseInt(removeCommas("{{ college.scope2 }}")) ];
+		scope2counter++;
+		</script>
+        {% endfor %}
+        <script>
+		scope2series = new Array();
+		for (var i = 0; i < collegelist.length; i++) {
+    		scope2series[i] = {
+				name: collegelist[i],
+                data: scope2array[i]
+			};
+		}
+		</script>
+        <div id="scope2graph" style="width:100%; height:400px;"></div>
+        <!-- Generates the chart -->
+        <table class="table table-bordered table-striped">
+        <caption>Scope 2 Emissions</caption>
+        <thead>
+        <tr>
+        <td></td>
+        {% for college in collegelist %}
+        <th>{{college.institution}}, {{college.publicationdate}}</th>
+        {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% if purchasedelectricity %}
+        <tr>
+        <th>Purchased Electricity</th>
+        {% for college in collegelist %}
+        <td>{{college.purchasedelectricity}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if purchasedheating %}
+        <tr>
+        <th>Purchased Heating</th>
+        {% for college in collegelist %}
+        <td>{{college.purchasedheating}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if purchasedcooling %}
+        <tr>
+        <th>Purchased Cooling</th>
+        {% for college in collegelist %}
+        <td>{{college.purchasedcooling}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if purchasedsteam %}
+        <tr>
+        <th>Purchased Steam</th>
+        {% for college in collegelist %}
+        <td>{{college.purchasedsteam}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if scope2 %}
+        <tr>
+        <th>Total Scope 2</th>
+        {% for college in collegelist %}
+        <td>{{college.scope2}}</td>
+        {% endfor %}
+        </tr>
+        </tbody>
+        </table>
+        {% endif %}
+         <script type="text/javascript">
+
+(function($){ // encapsulate jQuery
+
+$(function () {
+        $('#scope2graph').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Scope 2 Emissions'
+            },
+            subtitle: {
+                text: 'Indirect Emissions Resultant from Purchases of Electricity, Heating & Cooling, and Steam'
+            },
+            xAxis: {
+                categories: [
+				'Purchased Electricity',
+				'Purchased Heating',
+				'Purchased Cooling',
+				'Purchased Steam',
+				'Total Scope 2'
+			]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Emissions (MTCO<sub>2</sub>e)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} MTCO<sub>2</sub>e</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: scope2series
+        });
+    });
+    
+
+})(jQuery);
+</script>
+{% endif %}
+
+        {% if scope3 %}
+         <!-- Generates the chart variables -->
+        <script>
+		scope3array = new Array();
+		scope3counter = 0;
+		</script>
+        {% for college in collegelist %}
+        <script>
+		function removeCommas(str) {
+    		return(str.replace(/,/g,''));
+		}
+		scope3array[scope3counter] = [parseInt(removeCommas("{{ college.commuting }}")), parseInt(removeCommas("{{ college.airtravel }}")), parseInt(removeCommas("{{ college.solidwaste }}")), parseInt(removeCommas("{{ college.wastewater }}")), parseInt(removeCommas("{{ college.paperemissions }}")), parseInt(removeCommas("{{ college.scope2td }}")), parseInt(removeCommas("{{ college.scope3 }}"))];
+		scope3counter++;
+		</script>
+        {% endfor %}
+        <script>
+		scope3series = new Array();
+		for (var i = 0; i < collegelist.length; i++) {
+    		scope3series[i] = {
+				name: collegelist[i],
+                data: scope3array[i]
+			};
+		}
+		</script>
+        <div id="scope3graph" style="width:100%; height:400px;"></div> 
+        <!-- Generates the chart -->
+        <table class="table table-bordered table-striped bar">
+        <caption>Scope 3 Emissions</caption>
+        <thead>
+        <tr>
+        <td></td>
+        {% for college in collegelist %}
+        <th>{{college.institution}}, {{college.publicationdate}}</th>
+        {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% if commuting %}
+        <tr>
+        <th>Commuting</th>
+        {% for college in collegelist %}
+        <td>{{college.commuting}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if airtravel %}
+        <tr>
+        <th>Air Travel</th>
+        {% for college in collegelist %}
+        <td>{{college.airtravel}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if solidwaste %}
+        <tr>
+        <th>Solid Waste</th>
+        {% for college in collegelist %}
+        <td>{{college.solidwaste}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if wastewater %}
+        <tr>
+        <th>Waste Water</th>
+        {% for college in collegelist %}
+        <td>{{college.wastewater}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if paperemissions %}
+        <tr>
+        <th>Paper Emissions</th>
+        {% for college in collegelist %}
+        <td>{{college.paperemissions}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+		{% if scope2td %}
+        <tr>
+        <th>Scope 2 T&amp;D Emissions</th>
+        {% for college in collegelist %}
+        <td>{{college.scope2td}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if scope3 %}
+        <tr>
+        <th>Total Scope 3 Emissions</th>
+        {% for college in collegelist %}
+        <td>{{college.scope3}}</td>
+        {% endfor %}
+        </tr>
+        </tbody>
+        </table>
+        {% endif %}
+        </table>
+<script type="text/javascript">
+
+(function($){ // encapsulate jQuery
+
+$(function () {
+        $('#scope3graph').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Scope 3 Emissions'
+            },
+            subtitle: {
+                text: 'Other Indirect Emissions'
+            },
+            xAxis: {
+                categories: [
+				'Commuting',
+				'Air Travel',
+				'Solid Waste',
+				'Waste Water',
+				'Paper Emissions',
+				'Scope 2 T&amp;D Emissions',
+				'Total Scope 3'
+			]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Emissions (MTCO<sub>2</sub>e)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} MTCO<sub>2</sub>e</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: scope3series
+        });
+    });
+    
+
+})(jQuery);
+</script>
+{% endif %}
+		{% if carbonoffsets or totalrecs or landsequestration or compostsequestration %}
+         <!-- Generates the chart variables -->
+        <script>
+		offsetsarray = new Array();
+		offsetscounter = 0;
+		</script>
+        {% for college in collegelist %}
+        <script>
+		function removeCommas(str) {
+    		return(str.replace(/,/g,''));
+		}
+		offsetsarray[offsetscounter] = [parseInt(removeCommas("{{ college.carbonoffsets }}")), parseInt(removeCommas("{{ college.totalrecs }}")), parseInt(removeCommas("{{ college.landsequestration }}")), parseInt(removeCommas("{{ college.compostsequestration }}"))];
+		offsetscounter++;
+		</script>
+        {% endfor %}
+        <script>
+		offsetsseries = new Array();
+		for (var i = 0; i < collegelist.length; i++) {
+    		offsetsseries[i] = {
+				name: collegelist[i],
+                data: offsetsarray[i]
+			};
+		}
+		</script>
+        <div id="offsetsgraph" style="width:100%; height:400px;"></div>        
+        <table class="table table-bordered table-striped">
+        <caption>Offsets</caption>
+        <thead>
+        <tr>
+        <td></td>
+        {% for college in collegelist %}
+        <th>{{college.institution}}, {{college.publicationdate}}</th>
+        {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% if carbonoffsets %}
+        <tr>
+        <th>Carbon Offsets</th>
+        {% for college in collegelist %}
+        <td>{{college.offsets}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if totalrecs %}
+        <tr>
+        <th>Total RECs</th>
+        {% for college in collegelist %}
+        <td>{{college.totalrecs}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if landsequestration %}
+        <tr>
+        <th>Land Sequestration</th>
+        {% for college in collegelist %}
+        <td>{{college.landsequestration}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if compostsequestration %}
+        <tr>
+        <th>Compost Sequestration</th>
+        {% for college in collegelist %}
+        <td>{{college.compostsequestration}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        </table>
+<script type="text/javascript">
+
+(function($){ // encapsulate jQuery
+
+$(function () {
+        $('#offsetsgraph').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Offsets'
+            },
+            subtitle: {
+                text: 'Emissions Offset Through RECs, Land Sequestration, and Compost Sequestration'
+            },
+            xAxis: {
+                categories: [
+				'Carbon Offsets',
+				'Renewable Energy Credits',
+				'Land Sequestration',
+				'Compost Sequestration'
+			]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Offsets'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: offsetsseries
+        });
+    });
+    
+
+})(jQuery);
+</script>
+{% endif %}
+		{% if gsf or residentialspace %}
+         <!-- Generates the chart variables -->
+        <script>
+		builtspacearray = new Array();
+		builtspacecounter = 0;
+		</script>
+        {% for college in collegelist %}
+        <script>
+		function removeCommas(str) {
+    		return(str.replace(/,/g,''));
+		}
+		builtspacearray[builtspacecounter] = [parseInt(removeCommas("{{ college.gsf }}")), parseInt(removeCommas("{{ college.residentialspace }}"))];
+		builtspacecounter++;
+		</script>
+        {% endfor %}
+        <script>
+		builtspaceseries = new Array();
+		for (var i = 0; i < collegelist.length; i++) {
+    		builtspaceseries[i] = {
+				name: collegelist[i],
+                data: builtspacearray[i]
+			};
+		}
+		</script>   
+        <script type="text/javascript">
+
+(function($){ // encapsulate jQuery
+
+$(function () {
+        $('#builtspacegraph').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Built Space'
+            },
+            subtitle: {
+                text: 'Gross Square Footage of Built Space'
+            },
+            xAxis: {
+                categories: [
+				'Gross Square Footage',
+				'Residential Space'
+			]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Square Footage'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f}sq. ft. </b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: builtspaceseries
+        });
+    });
+    
+
+})(jQuery);
+</script>
+<div id="builtspacegraph" style="width:100%; height:400px;"></div> 
+        <table class="table table-bordered table-striped">
+        <caption>Built Space</caption>
+        <thead>
+        <tr>
+        <td></td>
+        {% for college in collegelist %}
+        <th>{{college.institution}}, {{college.publicationdate}}</th>
+        {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% if gsf %}
+        <tr>
+        <th>Gross Square Footage</th>
+        {% for college in collegelist %}
+        <td>{{college.gsf}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if residentialspace %}
+        <tr>
+        <th>Residential Space</th>
+        {% for college in collegelist %}
+        <td>{{college.residentialspace}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        </tbody>
+        </table>
+{% endif %}
+		{% if studentfte %}
+         <!-- Generates the chart variables -->
+        <script>
+		studentftearray = new Array();
+		studentftecounter = 0;
+		</script>
+        {% for college in collegelist %}
+        <script>
+		function removeCommas(str) {
+    		return(str.replace(/,/g,''));
+		}
+		studentftearray[studentftecounter] = [parseInt(removeCommas("{{ college.studentfte }}"))];
+		studentftecounter++;
+		</script>
+        {% endfor %}
+        <script>
+		studentfteseries = new Array();
+		for (var i = 0; i < collegelist.length; i++) {
+    		studentfteseries[i] = {
+				name: collegelist[i],
+                data: studentftearray[i]
+			};
+		}
+		</script>   
+        <script type="text/javascript">
+
+(function($){ // encapsulate jQuery
+
+$(function () {
+        $('#studentftegraph').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Full Time Students'
+            },
+            subtitle: {
+                text: 'Number of Full Time Students in Reporting Year'
+            },
+            xAxis: {
+                categories: [
+				'Full Time Students'
+			]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Full Time Students'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f}Full Time Students</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: studentfteseries
+        });
+    });
+    
+
+})(jQuery);
+</script>
+<div id="studentftegraph" style="width:100%; height:400px;"></div> 
+        <table class="table table-bordered table-striped">
+        <caption>Full-Time Students</caption>
+        <thead>
+        <tr>
+        <td></td>
+        {% for college in collegelist %}
+        <th>{{college.institution}}, {{college.publicationdate}}</th>
+        {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <th>Student FTE</th>
+        {% for college in collegelist %}
+        <td>{{college.studentfte}}</td>
+        {% endfor %}
+        </tr>
+        </table>
+<!-- EndIF studentfte -->
+{% endif %}
+<!-- EndIF collegelist -->
+{% endif %}
+        
+        
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4">
+          <h2>The Latest Data.</h2><p>Our graphs are based on the latest data reported to the American College and University Presidents' Climate Commitment. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="span4">
+          <h2>Real-Time Graphing.</h2>
+          <p>Generate charts on-the-fly using the data you need. No more copying and pasting data into an Excel sheet. Just select the scopes you want and the institutions you want to compare. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+       </div>
+        <div class="span4">
+          <h2>Export to CSV.</h2>
+          <p>Generated the data you need? Export to CSV is as easy as the click of a button. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p><strong>&copy; Sustainr 2013.</strong> <em>Sustainr is brought to you by <a href="http://resume.brettshollenberger.com/" target="_blank">Brett Shollenberger</a> and backed by data from the <a href="http://www.presidentsclimatecommitment.org" target="_blank">ACUPCC</a>. </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+{% endblock %}

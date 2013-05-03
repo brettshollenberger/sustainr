@@ -1,0 +1,2109 @@
+{% extends "base.htm" %}
+
+{% block title %}Sustainr{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+         <h1>Compare Your College.</h1>
+        <p style="line-height:normal;">See how your institution's emissions stack up based on relative metrics, such as gross square footage or full time students.<br /><strong>On the fly.</strong>
+            <div class="row">
+        	<div class="span8">
+            <form action="#data" method="post">
+              <input type="text" class="span3 learnmorefocus" title="Type in the name of your college" data-content="If the name is not autocompleted, the college has not publicly reported their emissions data." placeholder="Find Your College" autocomplete="off" name="college1" data-provide="typeahead" data-items="10" data-source='["Adams State University",
+"Agnes Scott College",
+"Albion College",
+"Alfred State College SUNY College of Technology",
+"Alfred University",
+"Allegheny College",
+"American Public University System",
+"American University",
+"Anna Maria College",
+"Antioch University Los Angeles",
+"Antioch University New England",
+"Antioch University Seattle",
+"Appalachian State University",
+"Aquinas College",
+"Arizona State University",
+"Auburn University",
+"Augsburg College",
+"Austin College",
+"Austin Community College District",
+"Babson College",
+"Bainbridge Graduate Institute",
+"Ball State University",
+"Bard College",
+"Bates College",
+"Bellevue College",
+"Bemidji State University",
+"Bennington College",
+"Bentley University",
+"Berea College",
+"Bergen Community College",
+"Berkeley College",
+"Berkshire Community College",
+"Berry College",
+"Bethany College",
+"Black Hills State University",
+"Blue Ridge Community College",
+"Boise State University",
+"Boston Architectural College",
+"Bowdoin College",
+"Bowie State University",
+"Brandeis University",
+"Bridgemont Community and Technical College",
+"Bridgewater State University",
+"Bristol Community College",
+"Brookhaven College",
+"Broome Community College",
+"Bryn Mawr College",
+"Bucknell University",
+"Bunker Hill Community College",
+"Butler University",
+"Butte College",
+"Cabrillo College",
+"California College of the Arts",
+"California State Polytechnic University-Pomona",
+"California State University-Bakersfield",
+"California State University-Chico",
+"California State University-Long Beach",
+"California State University-Monterey Bay",
+"Cape Cod Community College",
+"Carleton College",
+"Carteret Community College",
+"Cascadia Community College",
+"Case Western Reserve University",
+"Castleton State College",
+"Catawba College",
+"Cazenovia College",
+"Cedar Valley College",
+"Central Carolina Community College",
+"Central College",
+"Central Connecticut State University",
+"Central New Mexico Community College",
+"Centralia College",
+"Centre College",
+"Century College",
+"Chabot College",
+"Chaffey College",
+"Chandler-Gilbert Community College",
+"Chatham University",
+"Cincinnati State Technical and Community College",
+"Claremont McKenna College",
+"Clark Atlanta University",
+"Clark University",
+"Clemson University",
+"Cleveland State University",
+"Coastal Carolina University",
+"Coastline Community College",
+"Coe College",
+"Colby College",
+"Colby-Sawyer College",
+"Colgate University",
+"College of Charleston",
+"College of Lake County",
+"College of Marin",
+"College of Menominee Nation",
+"College of Saint Benedict",
+"College of Saint Mary",
+"College of Saint Rose",
+"College of the Atlantic",
+"College of the Holy Cross",
+"Colorado College",
+"Colorado Mountain College",
+"Colorado State University",
+"Columbia College Chicago",
+"Columbia Gorge Community College",
+"Columbus State Community College",
+"Community College of Denver",
+"Connecticut College",
+"Coppin State University",
+"Cornell University",
+"County College of Morris",
+"Creighton University",
+"Cuyahoga Community College",
+"Dakota County Technical College",
+"Davidson College",
+"De Anza College",
+"Delaware State University",
+"Delta College",
+"Denison University",
+"DePauw University",
+"Des Moines Area Community College",
+"Dickinson College",
+"Drake University",
+"Drew University",
+"Drexel University",
+"Drury University",
+"Duke University",
+"Durham Technical Community College",
+"East Los Angeles College",
+"Eastern Connecticut State University",
+"Eastern Iowa Community College District",
+"Eastern Washington University",
+"Eastfield College",
+"Eckerd College",
+"Edmonds Community College",
+"El Centro College",
+"Elizabeth City State University",
+"Emerson College",
+"Emmanuel College",
+"Emory &amp; Henry College",
+"Estrella Mountain Community College",
+"Everett Community College",
+"Fairfield University",
+"Fayetteville State University",
+"Ferrum College",
+"Finger Lakes Community College",
+"Florida Atlantic University",
+"Florida Gulf Coast University",
+"Florida International University",
+"Foothill College",
+"Fort Lewis College",
+"Framingham State University",
+"Franklin &amp; Marshall College",
+"Franklin College of Indiana",
+"Franklin Pierce University",
+"Frostburg State University",
+"Furman University",
+"Gainesville State College",
+"Gateway Community College (AZ)",
+"Gateway Technical College",
+"George Mason University",
+"George Washington University",
+"Georgia Institute of Technology",
+"Georgia Southern University",
+"Georgian Court University",
+"Gettysburg College",
+"Glendale Community College",
+"Gloucester County College",
+"Goddard College",
+"Golden West College",
+"Gonzaga University",
+"Goshen College",
+"Goucher College",
+"Governors State University",
+"Grand Rapids Community College",
+"Grand Valley State University",
+"Green Mountain College",
+"Greenfield Community College",
+"Grinnell College",
+"Guilford College",
+"Gustavus Adolphus College",
+"Hamilton College",
+"Hampshire College",
+"Harford Community College",
+"Harrisburg Area Community College",
+"Harvey Mudd College",
+"Haverford College",
+"Haywood Community College",
+"Heartland Community College",
+"Hibbing Community College",
+"Hillsborough Community College",
+"Hiram College",
+"Hobart and William Smith Colleges",
+"Hocking Technical College",
+"Hollins University",
+"Holyoke Community College",
+"Houghton College",
+"Houston Community College",
+"Howard Community College",
+"Huston-Tillotson University",
+"Illinois Central College",
+"Illinois College",
+"Illinois State University",
+"Indiana State University",
+"Institute of American Indian and Alaska Native Culture and Arts Development",
+"Inver Hills Community College",
+"Iowa Lakes Community College",
+"Ithaca College",
+"Jackson Community College",
+"James Madison University",
+"Jamestown Community College",
+"Johnson County Community College",
+"Joliet Junior College",
+"Juniata College",
+"Kalamazoo College",
+"Kankakee Community College",
+"Keene State College",
+"Kennesaw State University",
+"Kent State University Stark Campus",
+"Keystone College",
+"Labette Community College",
+"LaGrange College",
+"Lake Land College",
+"Lake Superior College",
+"Lakeshore Technical College",
+"Lane Community College",
+"Lansing Community College",
+"Las Positas College",
+"Lasell College",
+"Lesley University",
+"Lewis &amp; Clark College",
+"Lewis and Clark Community College",
+"Life University",
+"Lincoln Land Community College",
+"Linfield College",
+"Lorain County Community College",
+"Los Angeles City College",
+"Los Angeles Harbor College",
+"Los Angeles Mission College",
+"Los Angeles Pierce College",
+"Los Angeles Southwest College",
+"Los Angeles Trade-Technical College",
+"Los Angeles Valley College",
+"Loyola Marymount University",
+"Loyola University Chicago",
+"Loyola University New Orleans",
+"Luther College",
+"Lynchburg College",
+"Macalester College",
+"Madison Area Technical College",
+"Maharishi University of Management",
+"Manhattanville College",
+"Mary Baldwin College",
+"Marymount Manhattan College",
+"Massachusetts Bay Community College",
+"Massachusetts College of Art &amp; Design",
+"Massachusetts College of Liberal Arts",
+"Massachusetts Maritime Academy",
+"Massasoit Community College",
+"McDaniel College",
+"McLennan Community College",
+"Medical University of South Carolina",
+"Mercer County Community College",
+"Mercyhurst University",
+"Mesa Community College",
+"Messiah College",
+"Metropolitan State College of Denver",
+"Metropolitan State University",
+"Middlebury College",
+"Middlesex Community College",
+"Mills College",
+"Milwaukee Area Technical College",
+"Minneapolis Community and Technical College",
+"Minnesota State Community and Technical College",
+"Minot State University",
+"Mississippi State University",
+"Mississippi Valley State University",
+"Missouri University of Science &amp; Technology",
+"Monroe Community College",
+"Montana State University - Bozeman",
+"Montana Tech of The University of Montana",
+"Montclair State University",
+"Monterey Institute of International Studies",
+"Montgomery County Community College",
+"Morehouse College",
+"Morgan State University",
+"Mount Mercy University",
+"Mount St. Mary&#39;s University",
+"Mount Wachusett Community College",
+"Naropa University",
+"Nassau Community College",
+"New College of Florida",
+"New England Institute of Technology",
+"New Mexico State University at Alamogordo",
+"New Mexico State University at Carlsbad",
+"New Mexico State University Dona Ana Branch",
+"New Mexico State University Grants Branch",
+"New Mexico State University Main Campus",
+"New York University",
+"Norfolk State University",
+"North Arkansas College",
+"North Carolina State University",
+"North Iowa Area Community College",
+"North Lake College",
+"North Seattle Community College",
+"North Shore Community College",
+"Northeast Lakeview College",
+"Northeastern University",
+"Northern Arizona University",
+"Northern Essex Community College",
+"Northern Kentucky University",
+"Northland College",
+"NorthWest Arkansas Community College",
+"Northwest Vista College",
+"Norwalk Community College",
+"Oberlin College",
+"Ocean County College",
+"Ohio University",
+"Ohlone College",
+"Olympic College",
+"Onondaga Community College",
+"Oregon Institute of Technology",
+"Oregon State University",
+"Pacific Lutheran University",
+"Palo Alto College",
+"Paradise Valley Community College",
+"Parkland College",
+"Pasadena City College",
+"Paul Smith&#39;s College of Arts and Sciences",
+"Peninsula College",
+"Penn State Berks",
+"Philadelphia University",
+"Phoenix College",
+"Pine Manor College",
+"Pitzer College",
+"Plymouth State University",
+"Point Loma Nazarene University",
+"Polytechnic University",
+"Pomona College",
+"Portland Community College",
+"Portland State University",
+"Pratt Institute",
+"Prescott College",
+"Purchase College, State University of New York",
+"Queens University of Charlotte",
+"Quinsigamond Community College",
+"Radford University",
+"Ramapo College of New Jersey",
+"Randolph College",
+"Rhodes College",
+"Rice University",
+"Richland College",
+"Rider University",
+"Rio Salado College",
+"Rochester Institute of Technology",
+"Roger Williams University",
+"Rogue Community College",
+"Rose-Hulman Institute of Technology",
+"Rowan University",
+"Roxbury Community College",
+"Saint John&#39;s University",
+"Saint Joseph&#39;s College of Maine",
+"Saint Norbert College",
+"Saint Peter&#39;s University",
+"Salem State College",
+"Salisbury University",
+"San Antonio College",
+"San Francisco State University",
+"San Joaquin Delta College",
+"Santa Clara University",
+"Santa Fe Community College (NM)",
+"Santa Monica College",
+"School for International Training",
+"School of the Art Institute of Chicago",
+"Scottsdale Community College",
+"Seattle Pacific University",
+"Seattle University",
+"Sewanee: The University of the South",
+"Shenandoah University",
+"Shoreline Community College",
+"Simmons College",
+"Simpson College",
+"Skagit Valley College",
+"Slippery Rock University of Pennsylvania",
+"Smith College",
+"South Dakota School of Mines and Technology",
+"South Mountain Community College",
+"South Suburban College",
+"Southern Connecticut State University",
+"Southern New Hampshire University",
+"Southern Oregon University",
+"Southern Polytechnic State University",
+"Southwestern College - Kansas",
+"Southwestern University",
+"Spelman College",
+"Springfield College",
+"St. Catherine University",
+"St. Clair County Community College",
+"St. Cloud State University",
+"St. Lawrence University",
+"St. Louis Community College at Florissant Valley",
+"St. Louis Community College at Meramec",
+"St. Mary&#39;s College of Maryland",
+"St. Philip&#39;s College",
+"State University of New York at Albany",
+"State University of New York at Binghamton",
+"State University of New York at Buffalo",
+"State University of New York at Fredonia",
+"State University of New York at New Paltz",
+"State University of New York at Stony Brook",
+"State University of New York College at Cortland",
+"State University of New York College at Geneseo",
+"State University of New York College at Oswego",
+"State University of New York College of Environmental Science and Forestry",
+"State University of New York Empire State College",
+"State University of New York Upstate Medical University",
+"Stetson University",
+"Sullivan County Community College",
+"SUNY Orange",
+"SUNY Rockland Community College",
+"Swarthmore College",
+"Sweet Briar College",
+"Syracuse University",
+"Temple University",
+"Texas Christian University",
+"The City College of New York",
+"The College of New Jersey",
+"The Community College of Baltimore County",
+"The Evergreen State College",
+"The National Graduate School of Quality Management",
+"The New School",
+"The Ohio State University - Columbus Campus",
+"The Richard Stockton College of New Jersey",
+"The Universities at Shady Grove",
+"The University of Montana - Helena College of Technology",
+"The University of Montana - Missoula",
+"The University of Montana - Western",
+"Tompkins Cortland Community College",
+"Towson University",
+"Transylvania University",
+"Trident Technical College",
+"Trinity College",
+"Truckee Meadows Community College",
+"Tulane University",
+"Union College",
+"United Tribes Technical College",
+"Unity College",
+"University of Alaska Anchorage",
+"University of Arizona",
+"University of Arkansas Main Campus",
+"University of Baltimore",
+"University of California, Berkeley",
+"University of California, Davis",
+"University of California, Irvine",
+"University of California, Los Angeles",
+"University of California, Merced",
+"University of California, Riverside",
+"University of California, San Diego",
+"University of California, San Francisco",
+"University of California, Santa Barbara",
+"University of California, Santa Cruz",
+"University of Central Florida",
+"University of Central Missouri",
+"University of Central Oklahoma",
+"University of Cincinnati",
+"University of Colorado at Boulder",
+"University of Colorado at Colorado Springs",
+"University of Colorado Denver",
+"University of Connecticut",
+"University of Delaware",
+"University of Denver",
+"University of Florida",
+"University of Hawai&#39;i at Manoa",
+"University of Hawaii Kauai Community College",
+"University of Houston - Victoria",
+"University of Idaho",
+"University of Illinois at Chicago",
+"University of Illinois at Springfield",
+"University of Illinois at Urbana-Champaign",
+"University of La Verne",
+"University of Louisville",
+"University of Maine",
+"University of Maine at Augusta",
+"University of Maine at Farmington",
+"University of Maine at Fort Kent",
+"University of Maine at Machias",
+"University of Maine at Presque Isle",
+"University of Maryland Baltimore",
+"University of Maryland Baltimore County",
+"University of Maryland Center for Environmental Science",
+"University of Maryland College Park",
+"University of Maryland Eastern Shore",
+"University of Maryland University College",
+"University of Massachusetts Amherst",
+"University of Massachusetts Boston",
+"University of Massachusetts Dartmouth",
+"University of Massachusetts Lowell",
+"University of Massachusetts Medical School",
+"University of Memphis",
+"University of Miami",
+"University of Minnesota-Crookston",
+"University of Minnesota-Duluth",
+"University of Minnesota-Morris",
+"University of Minnesota-Rochester",
+"University of Minnesota-Twin Cities",
+"University of Mississippi",
+"University of Missouri - Columbia",
+"University of Missouri - Kansas City",
+"University of Missouri - Saint Louis",
+"University of Mount Union",
+"University of Nevada, Las Vegas",
+"University of Nevada, Reno",
+"University of New England",
+"University of New Hampshire",
+"University of New Mexico-Gallup",
+"University of New Mexico-Los Alamos",
+"University of New Mexico-Main Campus",
+"University of New Mexico-Taos",
+"University of New Mexico-Valencia",
+"University of North Carolina at Chapel Hill",
+"University of North Carolina at Charlotte",
+"University of North Carolina at Greensboro",
+"University of North Dakota",
+"University of North Florida",
+"University of North Texas",
+"University of Oklahoma Norman Campus",
+"University of Oregon",
+"University of Pennsylvania",
+"University of Portland",
+"University of Puget Sound",
+"University of Redlands",
+"University of Rhode Island",
+"University of Richmond",
+"University of Saint Thomas",
+"University of South Carolina Aiken",
+"University of South Carolina Beaufort",
+"University of South Carolina Columbia",
+"University of South Carolina Lancaster",
+"University of South Carolina Salkehatchie",
+"University of South Carolina Sumter",
+"University of South Carolina Union",
+"University of South Carolina Upstate",
+"University of South Florida",
+"University of Southern Maine",
+"University of Southern Mississippi",
+"University of Tennessee at Chattanooga",
+"University of Tennessee, Knoxville",
+"University of Toledo - Main Campus",
+"University of Utah",
+"University of Vermont",
+"University of Washington Bothell",
+"University of Washington Seattle",
+"University of Washington Tacoma",
+"University of Wisconsin-Eau Claire",
+"University of Wisconsin-Green Bay",
+"University of Wisconsin-Oshkosh",
+"University of Wisconsin-River Falls",
+"University of Wisconsin-Stevens Point",
+"University of Wisconsin-Stout",
+"University of Wisconsin-Whitewater",
+"University of Wyoming",
+"Ursinus College",
+"Utah State University",
+"Valdosta State University",
+"Valencia College",
+"Vermilion Community College",
+"Victor Valley College",
+"Villanova University",
+"Virginia Commonwealth University",
+"Virginia Wesleyan College",
+"Voorhees College",
+"Wake Technical Community College",
+"Warren Wilson College",
+"Washington &amp; Jefferson College",
+"Washington and Lee University",
+"Washington College",
+"Washington State University Pullman",
+"Washington State University, Spokane",
+"Washington State University, Tri-Cities",
+"Washington State University, Vancouver",
+"Washtenaw Community College",
+"Weber State University",
+"Wells College",
+"Wentworth Institute of Technology",
+"Wesley College",
+"Wesleyan College",
+"Wesleyan University",
+"West Chester University of Pennsylvania",
+"West Los Angeles College",
+"Western Connecticut State University",
+"Western Iowa Tech Community College",
+"Western Michigan University",
+"Western Oregon University",
+"Western State College of Colorado",
+"Western Technical College",
+"Western Washington University",
+"Westminster College-Utah",
+"Wheelock College",
+"Whitworth University",
+"Wilkes University",
+"Willamette University",
+"William Paterson University of New Jersey",
+"William Rainey Harper College",
+"Wilson College",
+"Wilson Community College",
+"Winona State University",
+"Wittenberg University",
+"Wofford College",
+"Worcester State University",
+"Xavier University",
+"Yeshiva University"]'>
+</div></div><div class="row" style="position:relative; top:-20px;">
+        	<div class="span8">
+            <input type="text" class="span3" placeholder="Find A Peer Institution" autocomplete="off" name="college2" data-provide="typeahead" data-items="10" data-source='["Adams State University",
+"Agnes Scott College",
+"Albion College",
+"Alfred State College SUNY College of Technology",
+"Alfred University",
+"Allegheny College",
+"American Public University System",
+"American University",
+"Anna Maria College",
+"Antioch University Los Angeles",
+"Antioch University New England",
+"Antioch University Seattle",
+"Appalachian State University",
+"Aquinas College",
+"Arizona State University",
+"Auburn University",
+"Augsburg College",
+"Austin College",
+"Austin Community College District",
+"Babson College",
+"Bainbridge Graduate Institute",
+"Ball State University",
+"Bard College",
+"Bates College",
+"Bellevue College",
+"Bemidji State University",
+"Bennington College",
+"Bentley University",
+"Berea College",
+"Bergen Community College",
+"Berkeley College",
+"Berkshire Community College",
+"Berry College",
+"Bethany College",
+"Black Hills State University",
+"Blue Ridge Community College",
+"Boise State University",
+"Boston Architectural College",
+"Bowdoin College",
+"Bowie State University",
+"Brandeis University",
+"Bridgemont Community and Technical College",
+"Bridgewater State University",
+"Bristol Community College",
+"Brookhaven College",
+"Broome Community College",
+"Bryn Mawr College",
+"Bucknell University",
+"Bunker Hill Community College",
+"Butler University",
+"Butte College",
+"Cabrillo College",
+"California College of the Arts",
+"California State Polytechnic University-Pomona",
+"California State University-Bakersfield",
+"California State University-Chico",
+"California State University-Long Beach",
+"California State University-Monterey Bay",
+"Cape Cod Community College",
+"Carleton College",
+"Carteret Community College",
+"Cascadia Community College",
+"Case Western Reserve University",
+"Castleton State College",
+"Catawba College",
+"Cazenovia College",
+"Cedar Valley College",
+"Central Carolina Community College",
+"Central College",
+"Central Connecticut State University",
+"Central New Mexico Community College",
+"Centralia College",
+"Centre College",
+"Century College",
+"Chabot College",
+"Chaffey College",
+"Chandler-Gilbert Community College",
+"Chatham University",
+"Cincinnati State Technical and Community College",
+"Claremont McKenna College",
+"Clark Atlanta University",
+"Clark University",
+"Clemson University",
+"Cleveland State University",
+"Coastal Carolina University",
+"Coastline Community College",
+"Coe College",
+"Colby College",
+"Colby-Sawyer College",
+"Colgate University",
+"College of Charleston",
+"College of Lake County",
+"College of Marin",
+"College of Menominee Nation",
+"College of Saint Benedict",
+"College of Saint Mary",
+"College of Saint Rose",
+"College of the Atlantic",
+"College of the Holy Cross",
+"Colorado College",
+"Colorado Mountain College",
+"Colorado State University",
+"Columbia College Chicago",
+"Columbia Gorge Community College",
+"Columbus State Community College",
+"Community College of Denver",
+"Connecticut College",
+"Coppin State University",
+"Cornell University",
+"County College of Morris",
+"Creighton University",
+"Cuyahoga Community College",
+"Dakota County Technical College",
+"Davidson College",
+"De Anza College",
+"Delaware State University",
+"Delta College",
+"Denison University",
+"DePauw University",
+"Des Moines Area Community College",
+"Dickinson College",
+"Drake University",
+"Drew University",
+"Drexel University",
+"Drury University",
+"Duke University",
+"Durham Technical Community College",
+"East Los Angeles College",
+"Eastern Connecticut State University",
+"Eastern Iowa Community College District",
+"Eastern Washington University",
+"Eastfield College",
+"Eckerd College",
+"Edmonds Community College",
+"El Centro College",
+"Elizabeth City State University",
+"Emerson College",
+"Emmanuel College",
+"Emory &amp; Henry College",
+"Estrella Mountain Community College",
+"Everett Community College",
+"Fairfield University",
+"Fayetteville State University",
+"Ferrum College",
+"Finger Lakes Community College",
+"Florida Atlantic University",
+"Florida Gulf Coast University",
+"Florida International University",
+"Foothill College",
+"Fort Lewis College",
+"Framingham State University",
+"Franklin &amp; Marshall College",
+"Franklin College of Indiana",
+"Franklin Pierce University",
+"Frostburg State University",
+"Furman University",
+"Gainesville State College",
+"Gateway Community College (AZ)",
+"Gateway Technical College",
+"George Mason University",
+"George Washington University",
+"Georgia Institute of Technology",
+"Georgia Southern University",
+"Georgian Court University",
+"Gettysburg College",
+"Glendale Community College",
+"Gloucester County College",
+"Goddard College",
+"Golden West College",
+"Gonzaga University",
+"Goshen College",
+"Goucher College",
+"Governors State University",
+"Grand Rapids Community College",
+"Grand Valley State University",
+"Green Mountain College",
+"Greenfield Community College",
+"Grinnell College",
+"Guilford College",
+"Gustavus Adolphus College",
+"Hamilton College",
+"Hampshire College",
+"Harford Community College",
+"Harrisburg Area Community College",
+"Harvey Mudd College",
+"Haverford College",
+"Haywood Community College",
+"Heartland Community College",
+"Hibbing Community College",
+"Hillsborough Community College",
+"Hiram College",
+"Hobart and William Smith Colleges",
+"Hocking Technical College",
+"Hollins University",
+"Holyoke Community College",
+"Houghton College",
+"Houston Community College",
+"Howard Community College",
+"Huston-Tillotson University",
+"Illinois Central College",
+"Illinois College",
+"Illinois State University",
+"Indiana State University",
+"Institute of American Indian and Alaska Native Culture and Arts Development",
+"Inver Hills Community College",
+"Iowa Lakes Community College",
+"Ithaca College",
+"Jackson Community College",
+"James Madison University",
+"Jamestown Community College",
+"Johnson County Community College",
+"Joliet Junior College",
+"Juniata College",
+"Kalamazoo College",
+"Kankakee Community College",
+"Keene State College",
+"Kennesaw State University",
+"Kent State University Stark Campus",
+"Keystone College",
+"Labette Community College",
+"LaGrange College",
+"Lake Land College",
+"Lake Superior College",
+"Lakeshore Technical College",
+"Lane Community College",
+"Lansing Community College",
+"Las Positas College",
+"Lasell College",
+"Lesley University",
+"Lewis &amp; Clark College",
+"Lewis and Clark Community College",
+"Life University",
+"Lincoln Land Community College",
+"Linfield College",
+"Lorain County Community College",
+"Los Angeles City College",
+"Los Angeles Harbor College",
+"Los Angeles Mission College",
+"Los Angeles Pierce College",
+"Los Angeles Southwest College",
+"Los Angeles Trade-Technical College",
+"Los Angeles Valley College",
+"Loyola Marymount University",
+"Loyola University Chicago",
+"Loyola University New Orleans",
+"Luther College",
+"Lynchburg College",
+"Macalester College",
+"Madison Area Technical College",
+"Maharishi University of Management",
+"Manhattanville College",
+"Mary Baldwin College",
+"Marymount Manhattan College",
+"Massachusetts Bay Community College",
+"Massachusetts College of Art &amp; Design",
+"Massachusetts College of Liberal Arts",
+"Massachusetts Maritime Academy",
+"Massasoit Community College",
+"McDaniel College",
+"McLennan Community College",
+"Medical University of South Carolina",
+"Mercer County Community College",
+"Mercyhurst University",
+"Mesa Community College",
+"Messiah College",
+"Metropolitan State College of Denver",
+"Metropolitan State University",
+"Middlebury College",
+"Middlesex Community College",
+"Mills College",
+"Milwaukee Area Technical College",
+"Minneapolis Community and Technical College",
+"Minnesota State Community and Technical College",
+"Minot State University",
+"Mississippi State University",
+"Mississippi Valley State University",
+"Missouri University of Science &amp; Technology",
+"Monroe Community College",
+"Montana State University - Bozeman",
+"Montana Tech of The University of Montana",
+"Montclair State University",
+"Monterey Institute of International Studies",
+"Montgomery County Community College",
+"Morehouse College",
+"Morgan State University",
+"Mount Mercy University",
+"Mount St. Mary&#39;s University",
+"Mount Wachusett Community College",
+"Naropa University",
+"Nassau Community College",
+"New College of Florida",
+"New England Institute of Technology",
+"New Mexico State University at Alamogordo",
+"New Mexico State University at Carlsbad",
+"New Mexico State University Dona Ana Branch",
+"New Mexico State University Grants Branch",
+"New Mexico State University Main Campus",
+"New York University",
+"Norfolk State University",
+"North Arkansas College",
+"North Carolina State University",
+"North Iowa Area Community College",
+"North Lake College",
+"North Seattle Community College",
+"North Shore Community College",
+"Northeast Lakeview College",
+"Northeastern University",
+"Northern Arizona University",
+"Northern Essex Community College",
+"Northern Kentucky University",
+"Northland College",
+"NorthWest Arkansas Community College",
+"Northwest Vista College",
+"Norwalk Community College",
+"Oberlin College",
+"Ocean County College",
+"Ohio University",
+"Ohlone College",
+"Olympic College",
+"Onondaga Community College",
+"Oregon Institute of Technology",
+"Oregon State University",
+"Pacific Lutheran University",
+"Palo Alto College",
+"Paradise Valley Community College",
+"Parkland College",
+"Pasadena City College",
+"Paul Smith&#39;s College of Arts and Sciences",
+"Peninsula College",
+"Penn State Berks",
+"Philadelphia University",
+"Phoenix College",
+"Pine Manor College",
+"Pitzer College",
+"Plymouth State University",
+"Point Loma Nazarene University",
+"Polytechnic University",
+"Pomona College",
+"Portland Community College",
+"Portland State University",
+"Pratt Institute",
+"Prescott College",
+"Purchase College, State University of New York",
+"Queens University of Charlotte",
+"Quinsigamond Community College",
+"Radford University",
+"Ramapo College of New Jersey",
+"Randolph College",
+"Rhodes College",
+"Rice University",
+"Richland College",
+"Rider University",
+"Rio Salado College",
+"Rochester Institute of Technology",
+"Roger Williams University",
+"Rogue Community College",
+"Rose-Hulman Institute of Technology",
+"Rowan University",
+"Roxbury Community College",
+"Saint John&#39;s University",
+"Saint Joseph&#39;s College of Maine",
+"Saint Norbert College",
+"Saint Peter&#39;s University",
+"Salem State College",
+"Salisbury University",
+"San Antonio College",
+"San Francisco State University",
+"San Joaquin Delta College",
+"Santa Clara University",
+"Santa Fe Community College (NM)",
+"Santa Monica College",
+"School for International Training",
+"School of the Art Institute of Chicago",
+"Scottsdale Community College",
+"Seattle Pacific University",
+"Seattle University",
+"Sewanee: The University of the South",
+"Shenandoah University",
+"Shoreline Community College",
+"Simmons College",
+"Simpson College",
+"Skagit Valley College",
+"Slippery Rock University of Pennsylvania",
+"Smith College",
+"South Dakota School of Mines and Technology",
+"South Mountain Community College",
+"South Suburban College",
+"Southern Connecticut State University",
+"Southern New Hampshire University",
+"Southern Oregon University",
+"Southern Polytechnic State University",
+"Southwestern College - Kansas",
+"Southwestern University",
+"Spelman College",
+"Springfield College",
+"St. Catherine University",
+"St. Clair County Community College",
+"St. Cloud State University",
+"St. Lawrence University",
+"St. Louis Community College at Florissant Valley",
+"St. Louis Community College at Meramec",
+"St. Mary&#39;s College of Maryland",
+"St. Philip&#39;s College",
+"State University of New York at Albany",
+"State University of New York at Binghamton",
+"State University of New York at Buffalo",
+"State University of New York at Fredonia",
+"State University of New York at New Paltz",
+"State University of New York at Stony Brook",
+"State University of New York College at Cortland",
+"State University of New York College at Geneseo",
+"State University of New York College at Oswego",
+"State University of New York College of Environmental Science and Forestry",
+"State University of New York Empire State College",
+"State University of New York Upstate Medical University",
+"Stetson University",
+"Sullivan County Community College",
+"SUNY Orange",
+"SUNY Rockland Community College",
+"Swarthmore College",
+"Sweet Briar College",
+"Syracuse University",
+"Temple University",
+"Texas Christian University",
+"The City College of New York",
+"The College of New Jersey",
+"The Community College of Baltimore County",
+"The Evergreen State College",
+"The National Graduate School of Quality Management",
+"The New School",
+"The Ohio State University - Columbus Campus",
+"The Richard Stockton College of New Jersey",
+"The Universities at Shady Grove",
+"The University of Montana - Helena College of Technology",
+"The University of Montana - Missoula",
+"The University of Montana - Western",
+"Tompkins Cortland Community College",
+"Towson University",
+"Transylvania University",
+"Trident Technical College",
+"Trinity College",
+"Truckee Meadows Community College",
+"Tulane University",
+"Union College",
+"United Tribes Technical College",
+"Unity College",
+"University of Alaska Anchorage",
+"University of Arizona",
+"University of Arkansas Main Campus",
+"University of Baltimore",
+"University of California, Berkeley",
+"University of California, Davis",
+"University of California, Irvine",
+"University of California, Los Angeles",
+"University of California, Merced",
+"University of California, Riverside",
+"University of California, San Diego",
+"University of California, San Francisco",
+"University of California, Santa Barbara",
+"University of California, Santa Cruz",
+"University of Central Florida",
+"University of Central Missouri",
+"University of Central Oklahoma",
+"University of Cincinnati",
+"University of Colorado at Boulder",
+"University of Colorado at Colorado Springs",
+"University of Colorado Denver",
+"University of Connecticut",
+"University of Delaware",
+"University of Denver",
+"University of Florida",
+"University of Hawai&#39;i at Manoa",
+"University of Hawaii Kauai Community College",
+"University of Houston - Victoria",
+"University of Idaho",
+"University of Illinois at Chicago",
+"University of Illinois at Springfield",
+"University of Illinois at Urbana-Champaign",
+"University of La Verne",
+"University of Louisville",
+"University of Maine",
+"University of Maine at Augusta",
+"University of Maine at Farmington",
+"University of Maine at Fort Kent",
+"University of Maine at Machias",
+"University of Maine at Presque Isle",
+"University of Maryland Baltimore",
+"University of Maryland Baltimore County",
+"University of Maryland Center for Environmental Science",
+"University of Maryland College Park",
+"University of Maryland Eastern Shore",
+"University of Maryland University College",
+"University of Massachusetts Amherst",
+"University of Massachusetts Boston",
+"University of Massachusetts Dartmouth",
+"University of Massachusetts Lowell",
+"University of Massachusetts Medical School",
+"University of Memphis",
+"University of Miami",
+"University of Minnesota-Crookston",
+"University of Minnesota-Duluth",
+"University of Minnesota-Morris",
+"University of Minnesota-Rochester",
+"University of Minnesota-Twin Cities",
+"University of Mississippi",
+"University of Missouri - Columbia",
+"University of Missouri - Kansas City",
+"University of Missouri - Saint Louis",
+"University of Mount Union",
+"University of Nevada, Las Vegas",
+"University of Nevada, Reno",
+"University of New England",
+"University of New Hampshire",
+"University of New Mexico-Gallup",
+"University of New Mexico-Los Alamos",
+"University of New Mexico-Main Campus",
+"University of New Mexico-Taos",
+"University of New Mexico-Valencia",
+"University of North Carolina at Chapel Hill",
+"University of North Carolina at Charlotte",
+"University of North Carolina at Greensboro",
+"University of North Dakota",
+"University of North Florida",
+"University of North Texas",
+"University of Oklahoma Norman Campus",
+"University of Oregon",
+"University of Pennsylvania",
+"University of Portland",
+"University of Puget Sound",
+"University of Redlands",
+"University of Rhode Island",
+"University of Richmond",
+"University of Saint Thomas",
+"University of South Carolina Aiken",
+"University of South Carolina Beaufort",
+"University of South Carolina Columbia",
+"University of South Carolina Lancaster",
+"University of South Carolina Salkehatchie",
+"University of South Carolina Sumter",
+"University of South Carolina Union",
+"University of South Carolina Upstate",
+"University of South Florida",
+"University of Southern Maine",
+"University of Southern Mississippi",
+"University of Tennessee at Chattanooga",
+"University of Tennessee, Knoxville",
+"University of Toledo - Main Campus",
+"University of Utah",
+"University of Vermont",
+"University of Washington Bothell",
+"University of Washington Seattle",
+"University of Washington Tacoma",
+"University of Wisconsin-Eau Claire",
+"University of Wisconsin-Green Bay",
+"University of Wisconsin-Oshkosh",
+"University of Wisconsin-River Falls",
+"University of Wisconsin-Stevens Point",
+"University of Wisconsin-Stout",
+"University of Wisconsin-Whitewater",
+"University of Wyoming",
+"Ursinus College",
+"Utah State University",
+"Valdosta State University",
+"Valencia College",
+"Vermilion Community College",
+"Victor Valley College",
+"Villanova University",
+"Virginia Commonwealth University",
+"Virginia Wesleyan College",
+"Voorhees College",
+"Wake Technical Community College",
+"Warren Wilson College",
+"Washington &amp; Jefferson College",
+"Washington and Lee University",
+"Washington College",
+"Washington State University Pullman",
+"Washington State University, Spokane",
+"Washington State University, Tri-Cities",
+"Washington State University, Vancouver",
+"Washtenaw Community College",
+"Weber State University",
+"Wells College",
+"Wentworth Institute of Technology",
+"Wesley College",
+"Wesleyan College",
+"Wesleyan University",
+"West Chester University of Pennsylvania",
+"West Los Angeles College",
+"Western Connecticut State University",
+"Western Iowa Tech Community College",
+"Western Michigan University",
+"Western Oregon University",
+"Western State College of Colorado",
+"Western Technical College",
+"Western Washington University",
+"Westminster College-Utah",
+"Wheelock College",
+"Whitworth University",
+"Wilkes University",
+"Willamette University",
+"William Paterson University of New Jersey",
+"William Rainey Harper College",
+"Wilson College",
+"Wilson Community College",
+"Winona State University",
+"Wittenberg University",
+"Wofford College",
+"Worcester State University",
+"Xavier University",
+"Yeshiva University"]'>
+</div>
+</div>
+<div class="row" style="position:relative; top:-20px;">
+	<div class="span7 well learnmorehover" title="Learn more" data-content="Hover over each checkbox to learn more about what it means.">
+    <em>Select Data:</em><br />
+<div class="myclass" title="Scope 1 Emissions" data-content="Direct emissions from sources that are owned or controlled by the college. Scope 1 can include emissions from fossil fuels burned on site or emissions from college-owned vehicles."  style="display:inline;"><label class="checkbox inline">
+  <input type="checkbox" id="inlineCheckbox1" name="scope1" > Scope 1 &nbsp;&nbsp;
+</label></div>
+<div class="myclass" title="Scope 2 Emissions" data-content="Indirect emissions resulting from the generation of electricity, heating and cooling, or steam generated off site but purchased by the college."  style="display:inline;">
+<label class="checkbox inline">
+  <input type="checkbox" id="inlineCheckbox2" name="scope2"> Scope 2 &nbsp;&nbsp;
+</label></div>
+<div class="myclass" title="Scope 3 Emissions" data-content="Indirect emissions from sources not owned or directly controlled by the college but related to college activities. Scope 3 emissions currently required for federal GHG reporting include T&D losses associated with purchased electricity, employee travel and commuting, contracted solid waste disposal, and contracted wastewater treatment."  style="display:inline;">
+<label class="checkbox inline">
+  <input type="checkbox" id="inlineCheckbox3" name="scope3"> Scope 3&nbsp;&nbsp;
+</label></div>
+<div class="myclass" title="Carbon Offsets" data-content="Including purchases of renewable energy credits as well as offsets associated with land sequestration and compost sequestration."  style="display:inline;">
+<label class="checkbox inline">
+  <input type="checkbox" id="inlineCheckbox3" name="offsets"> Carbon Offsets&nbsp;&nbsp;
+</label></div>
+<div class="myclass" title="Built Space" data-content="Gross square footage is a normalizing factor. Colleges with more built space are expected to produce greater emissions."  style="display:inline;">
+<label class="checkbox inline">
+  <input type="checkbox" id="inlineCheckbox3" name="builtspace"> Built Space&nbsp;&nbsp;
+</label></div>
+<div class="myclass" title="Full Time Students" data-content="Student FTE is a normalizing factor. Colleges with more students are expected to produce greater emissions."  style="display:inline;">
+<label class="checkbox inline">
+  <input type="checkbox" id="inlineCheckbox3" name="studentfte"> Full Time Students&nbsp;&nbsp;
+</label></div>
+</div>
+</div>
+ <div class="row" style="position:relative; top:-20px;">
+            <div class="span3">
+            <input class="btn btn-primary" type="submit" value="Let's Go!" style="padding:10px 15px;" />
+            </form>
+            </div></div>
+              {% if college1 == college2 and college1 != None %}
+
+          <div class="row" style="position:relative; top:-20px;">
+            <div class="span6">
+          <div class="alert alert-error" style="line-height:normal;">
+  <button type="button" class="close" data-dismiss="alert" style="position:relative; left:-10px;">&times;</button>
+  <h4>Select Different Colleges.</h4>
+  Alright, Narcissistic Nancy. Hows about comparing two different schools? 
+</div></div></div>
+            {% endif %}
+            
+             {% if error == 'colleges' %}
+
+          <div class="row" style="position:relative; top:-20px;">
+            <div class="span6">
+          <div class="alert alert-error" style="line-height:normal;">
+  <button type="button" class="close" data-dismiss="alert" style="position:relative; left:-10px;">&times;</button>
+  <h4>Select Two Colleges.</h4>
+  It takes two to tango, and to make comparisons.
+</div></div></div>
+            {% endif %}
+            {% if offsetsval == True and carbonoffsets == False and landsequestration == False and compostsequestration == False and totalrecs == False %}
+
+          <div class="row" style="position:relative; top:-20px;">
+            <div class="span6">
+          <div class="alert alert-block" style="line-height:normal;">
+  <button type="button" class="close" data-dismiss="alert" style="position:relative; left:-10px;">&times;</button>
+  <h4>Heads Up, Cowboy</h4>
+  No carbon offsets were reported for {% if college1 %} {{college1}} {%endif%} {% if college1 and college2 %} {% if college1 != college2 %} or {% endif %}{% endif %} {% if college2 %}{% if college1 != college2 %}{{college2}}{%endif%}{%endif%}
+</div></div></div>
+            {% endif %}
+                    {% if builtspaceval == True and gsf == False and residentialspace == False %}
+
+          <div class="row" style="position:relative; top:-20px;">
+            <div class="span6">
+          <div class="alert alert-block" style="line-height:normal;">
+  <button type="button" class="close" data-dismiss="alert" style="position:relative; left:-10px;">&times;</button>
+  <h4>Heads Up, Cowboy.</h4>
+  No built space was reported for {% if college1 %} {{college1}} {%endif%} {% if college1 and college2 %} {% if college1 != college2 %} or {% endif %}{% endif %} {% if college2 %}{% if college1 != college2 %}{{college2}}{%endif%}{%endif%}. I'm sure there are buildings there, but nobody's talking about 'em.
+</div></div></div></div>
+            {% endif %}
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+            
+
+      </div><div id="data" style="position:relative; top:-40px;"></div>
+      	<!-- This section of the page generates if the user has selected data -->
+		{% if collegelist %}
+        <script>
+		collegelist = new Array();
+		collegecounter = 0;
+		</script>
+        {% for college in collegelist %}
+       <script>
+	   function removeCommas(str) {
+    		return(str.replace(/,/g,''));
+		}
+			function replaceApostrophes(str) {
+    		return(str.replace(/&#39;/g,"'"));
+		}
+			function replaceAmper(str) {
+    		return(str.replace(/&amp;/g,"&"));
+		}
+	   	collegelist[collegecounter] = [replaceAmper(replaceApostrophes("{{college.institution}}"+", "+"{{college.publicationdate}}"))];
+		collegecounter++;
+		</script>
+        {% endfor %}
+       	<!-- This section of the page generates if any Scope 1 data has been reported -->
+        {% if scope1 %}
+        <div id="scope1graph" style="width:100%; height:400px;"></div>
+        <!-- Creates the table -->
+        <table class="table table-bordered table-striped">
+        <!-- Generates the chart variables -->
+        <script>
+		scope1array = new Array();
+		scope1counter = 0;
+		</script>
+        {% for college in collegelist %}
+        <script>
+		function removeCommas(str) {
+    		return(str.replace(/,/g,''));
+		}
+			function replaceApostrophes(str) {
+    		return(str.replace(/&#39;/g,"'"));
+		}
+			function replaceAmper(str) {
+    		return(str.replace(/&amp;/g,"&"));
+		}
+		scope1array[scope1counter] = [parseInt(removeCommas("{{ college.stationarycombustion }}")), parseInt(removeCommas("{{ college.mobilecombustion }}")), parseInt(removeCommas("{{ college.processemissions }}")), parseInt(removeCommas("{{ college.fugitiveemissions }}")), parseInt(removeCommas("{{ college.scope1 }}")) ];
+		scope1counter++;
+		</script>
+        {% endfor %}
+        <script>
+		scope1series = new Array();
+		for (var i = 0; i < collegelist.length; i++) {
+    		scope1series[i] = {
+				name: collegelist[i],
+                data: scope1array[i]
+			};
+		}
+		</script>
+        <caption>Scope 1 Emissions</caption>
+        <thead>
+        <tr>
+        <td></td>
+        {% for college in collegelist %}
+        <th>{{college.institution}}, {{college.publicationdate}}</th>
+        {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% if stationarycombustion %}
+        <tr>
+        <th>Stationary Combustion</th>
+        {% for college in collegelist %}
+        <td>{{college.stationarycombustion}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if mobilecombustion %}
+        <tr>
+        <th>Mobile Combustion</th>
+        {% for college in collegelist %}
+        <td>{{college.mobilecombustion}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if processemissions %}
+        <tr>
+        <th>Process Emissions</th>
+        {% for college in collegelist %}
+        <td>{{college.processemissions}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if fugitiveemissions %}
+        <tr>
+        <th>Fugitive Emissions</th>
+        {% for college in collegelist %}
+        <td>{{college.fugitiveemissions}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if scope1 %}
+        <tr>
+        <th>Total Scope 1</th>
+        {% for college in collegelist %}
+        <td>{{college.scope1}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        </table>
+        
+         <script type="text/javascript">
+
+(function($){ // encapsulate jQuery
+
+$(function () {
+        $('#scope1graph').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Scope 1 Emissions'
+            },
+            subtitle: {
+                text: 'All Direct Emissions'
+            },
+            xAxis: {
+                categories: [
+				'Stationary Combustion',
+				'Mobile Combustion',
+				'Process Emissions',
+				'Fugitive Emissions',
+				'Total Scope 1'
+			]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Emissions (MTCO<sub>2</sub>e)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} MTCO<sub>2</sub>e</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: scope1series
+        });
+    });
+    
+
+})(jQuery);
+</script>
+{% endif %}
+<script src="http://brettshollenberger.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+    
+        {% if scope2 %}
+         <!-- Generates the chart variables -->
+        <script>
+		scope2array = new Array();
+		scope2counter = 0;
+		</script>
+        {% for college in collegelist %}
+        <script>
+		function removeCommas(str) {
+    		return(str.replace(/,/g,''));
+		}
+		scope2array[scope2counter] = [parseInt(removeCommas("{{ college.purchasedelectricity }}")), parseInt(removeCommas("{{ college.purchasedheating }}")), parseInt(removeCommas("{{ college.purchasedcooling }}")), parseInt(removeCommas("{{ college.purchasedsteam }}")), parseInt(removeCommas("{{ college.scope2 }}")) ];
+		scope2counter++;
+		</script>
+        {% endfor %}
+        <script>
+		scope2series = new Array();
+		for (var i = 0; i < collegelist.length; i++) {
+    		scope2series[i] = {
+				name: collegelist[i],
+                data: scope2array[i]
+			};
+		}
+		</script>
+        <div id="scope2graph" style="width:100%; height:400px;"></div>
+        <!-- Generates the chart -->
+        <table class="table table-bordered table-striped">
+        <caption>Scope 2 Emissions</caption>
+        <thead>
+        <tr>
+        <td></td>
+        {% for college in collegelist %}
+        <th>{{college.institution}}, {{college.publicationdate}}</th>
+        {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% if purchasedelectricity %}
+        <tr>
+        <th>Purchased Electricity</th>
+        {% for college in collegelist %}
+        <td>{{college.purchasedelectricity}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if purchasedheating %}
+        <tr>
+        <th>Purchased Heating</th>
+        {% for college in collegelist %}
+        <td>{{college.purchasedheating}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if purchasedcooling %}
+        <tr>
+        <th>Purchased Cooling</th>
+        {% for college in collegelist %}
+        <td>{{college.purchasedcooling}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if purchasedsteam %}
+        <tr>
+        <th>Purchased Steam</th>
+        {% for college in collegelist %}
+        <td>{{college.purchasedsteam}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if scope2 %}
+        <tr>
+        <th>Total Scope 2</th>
+        {% for college in collegelist %}
+        <td>{{college.scope2}}</td>
+        {% endfor %}
+        </tr>
+        </tbody>
+        </table>
+        {% endif %}
+         <script type="text/javascript">
+
+(function($){ // encapsulate jQuery
+
+$(function () {
+        $('#scope2graph').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Scope 2 Emissions'
+            },
+            subtitle: {
+                text: 'Indirect Emissions Resultant from Purchases of Electricity, Heating & Cooling, and Steam'
+            },
+            xAxis: {
+                categories: [
+				'Purchased Electricity',
+				'Purchased Heating',
+				'Purchased Cooling',
+				'Purchased Steam',
+				'Total Scope 2'
+			]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Emissions (MTCO<sub>2</sub>e)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} MTCO<sub>2</sub>e</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: scope2series
+        });
+    });
+    
+
+})(jQuery);
+</script>
+{% endif %}
+
+        {% if scope3 %}
+         <!-- Generates the chart variables -->
+        <script>
+		scope3array = new Array();
+		scope3counter = 0;
+		</script>
+        {% for college in collegelist %}
+        <script>
+		function removeCommas(str) {
+    		return(str.replace(/,/g,''));
+		}
+		scope3array[scope3counter] = [parseInt(removeCommas("{{ college.commuting }}")), parseInt(removeCommas("{{ college.airtravel }}")), parseInt(removeCommas("{{ college.solidwaste }}")), parseInt(removeCommas("{{ college.wastewater }}")), parseInt(removeCommas("{{ college.paperemissions }}")), parseInt(removeCommas("{{ college.scope2td }}")), parseInt(removeCommas("{{ college.scope3 }}"))];
+		scope3counter++;
+		</script>
+        {% endfor %}
+        <script>
+		scope3series = new Array();
+		for (var i = 0; i < collegelist.length; i++) {
+    		scope3series[i] = {
+				name: collegelist[i],
+                data: scope3array[i]
+			};
+		}
+		</script>
+        <div id="scope3graph" style="width:100%; height:400px;"></div> 
+        <!-- Generates the chart -->
+        <table class="table table-bordered table-striped bar">
+        <caption>Scope 3 Emissions</caption>
+        <thead>
+        <tr>
+        <td></td>
+        {% for college in collegelist %}
+        <th>{{college.institution}}, {{college.publicationdate}}</th>
+        {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% if commuting %}
+        <tr>
+        <th>Commuting</th>
+        {% for college in collegelist %}
+        <td>{{college.commuting}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if airtravel %}
+        <tr>
+        <th>Air Travel</th>
+        {% for college in collegelist %}
+        <td>{{college.airtravel}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if solidwaste %}
+        <tr>
+        <th>Solid Waste</th>
+        {% for college in collegelist %}
+        <td>{{college.solidwaste}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if wastewater %}
+        <tr>
+        <th>Waste Water</th>
+        {% for college in collegelist %}
+        <td>{{college.wastewater}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if paperemissions %}
+        <tr>
+        <th>Paper Emissions</th>
+        {% for college in collegelist %}
+        <td>{{college.paperemissions}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+		{% if scope2td %}
+        <tr>
+        <th>Scope 2 T&amp;D Emissions</th>
+        {% for college in collegelist %}
+        <td>{{college.scope2td}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if scope3 %}
+        <tr>
+        <th>Total Scope 3 Emissions</th>
+        {% for college in collegelist %}
+        <td>{{college.scope3}}</td>
+        {% endfor %}
+        </tr>
+        </tbody>
+        </table>
+        {% endif %}
+        </table>
+<script type="text/javascript">
+
+(function($){ // encapsulate jQuery
+
+$(function () {
+        $('#scope3graph').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Scope 3 Emissions'
+            },
+            subtitle: {
+                text: 'Other Indirect Emissions'
+            },
+            xAxis: {
+                categories: [
+				'Commuting',
+				'Air Travel',
+				'Solid Waste',
+				'Waste Water',
+				'Paper Emissions',
+				'Scope 2 T&amp;D Emissions',
+				'Total Scope 3'
+			]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Emissions (MTCO<sub>2</sub>e)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} MTCO<sub>2</sub>e</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: scope3series
+        });
+    });
+    
+
+})(jQuery);
+</script>
+{% endif %}
+		{% if carbonoffsets or totalrecs or landsequestration or compostsequestration %}
+         <!-- Generates the chart variables -->
+        <script>
+		offsetsarray = new Array();
+		offsetscounter = 0;
+		</script>
+        {% for college in collegelist %}
+        <script>
+		function removeCommas(str) {
+    		return(str.replace(/,/g,''));
+		}
+		offsetsarray[offsetscounter] = [parseInt(removeCommas("{{ college.carbonoffsets }}")), parseInt(removeCommas("{{ college.totalrecs }}")), parseInt(removeCommas("{{ college.landsequestration }}")), parseInt(removeCommas("{{ college.compostsequestration }}"))];
+		offsetscounter++;
+		</script>
+        {% endfor %}
+        <script>
+		offsetsseries = new Array();
+		for (var i = 0; i < collegelist.length; i++) {
+    		offsetsseries[i] = {
+				name: collegelist[i],
+                data: offsetsarray[i]
+			};
+		}
+		</script>
+        <div id="offsetsgraph" style="width:100%; height:400px;"></div>        
+        <table class="table table-bordered table-striped">
+        <caption>Offsets</caption>
+        <thead>
+        <tr>
+        <td></td>
+        {% for college in collegelist %}
+        <th>{{college.institution}}, {{college.publicationdate}}</th>
+        {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% if carbonoffsets %}
+        <tr>
+        <th>Carbon Offsets</th>
+        {% for college in collegelist %}
+        <td>{{college.offsets}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if totalrecs %}
+        <tr>
+        <th>Total RECs</th>
+        {% for college in collegelist %}
+        <td>{{college.totalrecs}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if landsequestration %}
+        <tr>
+        <th>Land Sequestration</th>
+        {% for college in collegelist %}
+        <td>{{college.landsequestration}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if compostsequestration %}
+        <tr>
+        <th>Compost Sequestration</th>
+        {% for college in collegelist %}
+        <td>{{college.compostsequestration}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        </table>
+<script type="text/javascript">
+
+(function($){ // encapsulate jQuery
+
+$(function () {
+        $('#offsetsgraph').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Offsets'
+            },
+            subtitle: {
+                text: 'Emissions Offset Through RECs, Land Sequestration, and Compost Sequestration'
+            },
+            xAxis: {
+                categories: [
+				'Carbon Offsets',
+				'Renewable Energy Credits',
+				'Land Sequestration',
+				'Compost Sequestration'
+			]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Offsets'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: offsetsseries
+        });
+    });
+    
+
+})(jQuery);
+</script>
+{% endif %}
+		{% if gsf or residentialspace %}
+         <!-- Generates the chart variables -->
+        <script>
+		builtspacearray = new Array();
+		builtspacecounter = 0;
+		</script>
+        {% for college in collegelist %}
+        <script>
+		function removeCommas(str) {
+    		return(str.replace(/,/g,''));
+		}
+		builtspacearray[builtspacecounter] = [parseInt(removeCommas("{{ college.gsf }}")), parseInt(removeCommas("{{ college.residentialspace }}"))];
+		builtspacecounter++;
+		</script>
+        {% endfor %}
+        <script>
+		builtspaceseries = new Array();
+		for (var i = 0; i < collegelist.length; i++) {
+    		builtspaceseries[i] = {
+				name: collegelist[i],
+                data: builtspacearray[i]
+			};
+		}
+		</script>   
+        <script type="text/javascript">
+
+(function($){ // encapsulate jQuery
+
+$(function () {
+        $('#builtspacegraph').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Built Space'
+            },
+            subtitle: {
+                text: 'Gross Square Footage of Built Space'
+            },
+            xAxis: {
+                categories: [
+				'Gross Square Footage',
+				'Residential Space'
+			]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Square Footage'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f}sq. ft. </b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: builtspaceseries
+        });
+    });
+    
+
+})(jQuery);
+</script>
+<div id="builtspacegraph" style="width:100%; height:400px;"></div> 
+        <table class="table table-bordered table-striped">
+        <caption>Built Space</caption>
+        <thead>
+        <tr>
+        <td></td>
+        {% for college in collegelist %}
+        <th>{{college.institution}}, {{college.publicationdate}}</th>
+        {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% if gsf %}
+        <tr>
+        <th>Gross Square Footage</th>
+        {% for college in collegelist %}
+        <td>{{college.gsf}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        {% if residentialspace %}
+        <tr>
+        <th>Residential Space</th>
+        {% for college in collegelist %}
+        <td>{{college.residentialspace}}</td>
+        {% endfor %}
+        </tr>
+        {% endif %}
+        </tbody>
+        </table>
+{% endif %}
+		{% if studentfte %}
+         <!-- Generates the chart variables -->
+        <script>
+		studentftearray = new Array();
+		studentftecounter = 0;
+		</script>
+        {% for college in collegelist %}
+        <script>
+		function removeCommas(str) {
+    		return(str.replace(/,/g,''));
+		}
+		studentftearray[studentftecounter] = [parseInt(removeCommas("{{ college.studentfte }}"))];
+		studentftecounter++;
+		</script>
+        {% endfor %}
+        <script>
+		studentfteseries = new Array();
+		for (var i = 0; i < collegelist.length; i++) {
+    		studentfteseries[i] = {
+				name: collegelist[i],
+                data: studentftearray[i]
+			};
+		}
+		</script>   
+        <script type="text/javascript">
+
+(function($){ // encapsulate jQuery
+
+$(function () {
+        $('#studentftegraph').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Full Time Students'
+            },
+            subtitle: {
+                text: 'Number of Full Time Students in Reporting Year'
+            },
+            xAxis: {
+                categories: [
+				'Full Time Students'
+			]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Full Time Students'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f}Full Time Students</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: studentfteseries
+        });
+    });
+    
+
+})(jQuery);
+</script>
+<div id="studentftegraph" style="width:100%; height:400px;"></div> 
+        <table class="table table-bordered table-striped">
+        <caption>Full-Time Students</caption>
+        <thead>
+        <tr>
+        <td></td>
+        {% for college in collegelist %}
+        <th>{{college.institution}}, {{college.publicationdate}}</th>
+        {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <th>Student FTE</th>
+        {% for college in collegelist %}
+        <td>{{college.studentfte}}</td>
+        {% endfor %}
+        </tr>
+        </table>
+<!-- EndIF studentfte -->
+{% endif %}
+<!-- EndIF collegelist -->
+{% endif %}
+        
+        
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4">
+          <h2>The Latest Data.</h2><p>Our graphs are based on the latest data reported to the American College and University Presidents' Climate Commitment. </p>
+          <p><a class="btn learnmore" title="The Latest Data" data-content="The American College and University Presidents' Climate Commitment offers a database of more than 50,000 emissions reports. All inventories submitted to the PCC are represented in Sustainr.">View details &raquo;</a></p>
+        </div>
+        <div class="span4">
+          <h2>Real-Time Graphing.</h2>
+          <p>Generate charts on-the-fly using the data you need. No more copying and pasting data into an Excel sheet. Just select the scopes you want and the institutions you want to compare. </p>
+          <p><a class="btn learnmore" title="Real-Time Graphing" data-content="Use either the form at the top of the page or the Quick Search bar to get started. The graphs you create can be saved by clicking the icon in the top right-hand corner of each.">View details &raquo;</a></p>
+       </div>
+        <div class="span4">
+          <h2>Export to CSV.</h2>
+          <p>Generated the data you need? Export to CSV is as easy as the click of a button. </p>
+          <p><a class="btn learnmore" title="Export to CSV" data-content="Feature coming soon.">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p><strong>&copy; Sustainr 2013.</strong> <em>Sustainr is brought to you by <a href="http://resume.brettshollenberger.com/" target="_blank">Brett Shollenberger</a> and backed by data from the <a href="http://www.presidentsclimatecommitment.org" target="_blank">ACUPCC</a>. </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+{% endblock %}
