@@ -1,7 +1,7 @@
-Python/Django Graphing/CSV Application
+sustainr
 ========
 
-A webapp featuring:
+A webapp for sustainability professionals to compare carbon emissions and visualize trends:
 
 <ul>
 <li>Autocomplete Searches</li>
