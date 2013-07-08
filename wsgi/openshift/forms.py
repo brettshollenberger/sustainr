@@ -10,4 +10,3 @@ class CollegeSelect(forms.Form):
     offsets = forms.BooleanField(required=False)
     builtspace = forms.BooleanField(required=False)
     studentfte = forms.BooleanField(required=False)
-    #selectscopes = forms.ChoiceField(choices=thechoices, widget=SelectMultiple())
